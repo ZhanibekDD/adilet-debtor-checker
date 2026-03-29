@@ -1,0 +1,182 @@
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Контакты — StopNadpis</title>
+      <meta name="description" content="StopNadpis — современный юридический сервис по проверке ограничений, консультациям и сопровождению по исполнительным надписям.">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      <link rel="stylesheet" href="css/landing.css">
+      <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+      <header class="site-header">
+  <div class="landing-container nav-shell">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><span>SN</span></span>
+      <span class="brand-text">
+        <span class="brand-title">StopNadpis</span>
+        <span class="brand-subtitle">Цифровой юридический сервис</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Меню" data-nav-toggle>
+      <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <nav>
+      <ul class="nav-links" data-nav-links>
+        <li><a class="nav-link " href="index.html">Главная</a></li>
+        <li><a class="nav-link " href="services.html">Услуги</a></li>
+        <li><a class="nav-link active" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-side">
+      <div class="lang-switcher">
+        <a class="active" href="contact.html">RU</a>
+        <a class="" href="contact_kz.html">KZ</a>
+      </div>
+      <div class="header-contacts">
+        <a href="tel:+77000300024"><i class="bi bi-telephone"></i> +7 (700) 030-00-24</a>
+        <a href="https://wa.me/77000300024" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="landing-container">
+      <div class="page-hero-panel fade-in-section">
+        <div class="page-hero-grid">
+          <div>
+            <span class="section-kicker">Контакты</span>
+            <h1 class="section-title mb-3">Связаться стало проще и логичнее</h1>
+            <p class="section-lead">Контактная страница больше не выглядит как забытый угол сайта. Теперь это нормальная точка входа: с карточками, понятными каналами связи и формой, которая переводит пользователя в WhatsApp.</p>
+          </div>
+          <aside class="page-hero-side">
+            <h3>Подходит для</h3>
+            <ul class="list-clean">
+              <li><i class="bi bi-check2-circle"></i><span>Входящих обращений с рекламы и соцсетей</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>Быстрых консультаций по исполнительным надписям</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>Трафика, который хочет написать сразу, без звонков</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="landing-container">
+      <div class="contact-grid">
+        <article class="contact-card fade-in-section"><div class="contact-icon"><i class="bi bi-whatsapp"></i></div><h3>WhatsApp</h3><p>Самый быстрый канал для связи по кейсу, документам и первичной консультации.</p><span class="mini-chip"><a href="https://wa.me/77000300024" target="_blank" rel="noopener">Написать сейчас</a></span></article>
+        <article class="contact-card fade-in-section"><div class="contact-icon"><i class="bi bi-telephone"></i></div><h3>Телефон</h3><p>Для срочных вопросов и быстрых уточнений по вашему делу.</p><span class="mini-chip"><a href="tel:+77000300024">+7 (700) 030-00-24</a></span></article>
+        <article class="contact-card fade-in-section"><div class="contact-icon"><i class="bi bi-envelope"></i></div><h3>Email</h3><p>Подходит для длинных описаний ситуации и отправки документов.</p><span class="mini-chip"><a href="mailto:info@stopnadpis.kz">info@stopnadpis.kz</a></span></article>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-lg-7">
+          <div class="contact-form-wrap fade-in-section">
+            <h3>Оставить обращение</h3>
+            <p>Заполните форму, и сайт подготовит сообщение для WhatsApp. Дальше вы уже отправляете его в один тап. Просто, быстро, без магии и без потери заявки.</p>
+            <form id="contact-form" class="form-grid">
+              <div class="form-grid form-grid--2">
+                <div>
+                  <label class="field-label" for="name">Имя</label>
+                  <input class="form-control" id="name" name="name" type="text" placeholder="Как к вам обращаться">
+                </div>
+                <div>
+                  <label class="field-label" for="phone">Телефон</label>
+                  <input class="form-control" id="phone" name="phone" type="tel" placeholder="+7 (...) ...-..-..">
+                </div>
+              </div>
+              <div>
+                <label class="field-label" for="topic">Тема</label>
+                <select class="form-select" id="topic" name="topic">
+                  <option value="">Выберите тему</option>
+                  <option>Возражение на исполнительную надпись</option>
+                  <option>Проверка ограничений и арестов</option>
+                  <option>Консультация по делу</option>
+                  <option>Другое</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="message">Кратко по вопросу</label>
+                <textarea class="form-control" id="message" name="message" placeholder="Опишите ситуацию в 2–5 предложениях"></textarea>
+              </div>
+              <button type="submit">Открыть WhatsApp</button>
+              <p class="contact-result-note"></p>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="faq-grid">
+            <article class="faq-item fade-in-section">
+              <h3>Как быстро отвечаете?</h3>
+              <p>По входящим обращениям стараемся отвечать максимально быстро в рабочее время.</p>
+            </article>
+            <article class="faq-item fade-in-section">
+              <h3>Можно ли сразу отправить документы?</h3>
+              <p>Да, после перехода в WhatsApp можно отправить скриншоты, PDF и краткое описание ситуации.</p>
+            </article>
+            <article class="faq-item fade-in-section">
+              <h3>Работаете только по Казахстану?</h3>
+              <p>Основной фокус и визуальная логика сайта собраны именно под рынок Казахстана.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="landing-footer">
+  <div class="footer-top-line"></div>
+  <div class="landing-container footer-shell">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark"><span>SN</span></span>
+        <span class="brand-text">
+          <span class="brand-title">StopNadpis</span>
+          <span class="brand-subtitle">Цифровой юридический сервис</span>
+        </span>
+      </div>
+      <p class="mt-3">Мы превращаем сложную юридическую тему исполнительных надписей, ограничений и долговых производств в понятный цифровой сервис с нормальной подачей.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <h3 class="h5 mb-3">Разделы</h3>
+        <div class="footer-links">
+          <a href="index.html">Главная</a>
+          <a href="services.html">Услуги</a>
+          <a href="contact.html">Контакты</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5 mb-3">Связь</h3>
+        <div class="footer-contacts">
+          <a href="tel:+77000300024"><i class="bi bi-telephone me-2"></i>+7 (700) 030-00-24</a>
+          <a href="mailto:info@stopnadpis.kz"><i class="bi bi-envelope me-2"></i>info@stopnadpis.kz</a>
+          <a href="https://wa.me/77000300024" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="landing-container footer-bottom">
+    <span>© <span class="current-year"></span> StopNadpis. Все права защищены.</span>
+    <span class="footer-note">Дизайн и логика адаптированы под Казахстан.</span>
+  </div>
+</footer>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="js/site.js"></script>
+
+    </body>
+    </html>
