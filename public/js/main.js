@@ -24,51 +24,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const isKz = document.documentElement.lang && document.documentElement.lang.startsWith('kk');
     const locale = isKz ? 'kk-KZ' : 'ru-RU';
+    const baseLabels = {
+        debtorNum: 'Номер ИП',
+        date: 'Дата',
+        amount: 'Сумма долга',
+        csiCost: 'Услуги ЧСИ',
+        cancelCost: 'Стоимость отмены',
+        savings: 'Возможная экономия',
+        creditor: 'Взыскатель',
+        organ: 'Орган',
+        executor: 'Исполнитель',
+        status: 'Статус',
+        restrictionType: 'Тип ограничения'
+    };
+    const baseText = {
+        iinInvalid: 'ИИН должен содержать 12 цифр',
+        loadingCheck: 'Проверка данных в реестре должников...',
+        invalidFormat: 'Некорректный формат или отсутствуют данные',
+        genericErrorShort: 'Произошла ошибка при проверке данных. Пожалуйста, попробуйте позже.',
+        genericErrorLong: 'Произошла ошибка при получении данных. Пожалуйста, проверьте ИИН и попробуйте позже. Если ошибка повторяется, возможно, сервис adilet.gov.kz временно недоступен или находится под высокой нагрузкой.',
+        serverError: 'Ошибка сервера',
+        serverCheckError: 'Ошибка сервера при проверке должника',
+        apiNoData: 'Не удалось получить данные должника из ответа API',
+        canCancel: 'Можно отменить',
+        details: 'Подробнее',
+        yes: 'Да',
+        no: 'Нет',
+        complete: 'Загрузка завершена!',
+        loading: 'Загрузка...',
+        loadingRegistry: 'Проверка данных в реестрах',
+        interfaceError: 'Ошибка интерфейса: не удалось отобразить результаты.',
+        tableNotFound: 'Не найдены элементы таблиц или секций для отображения результатов.',
+        noDetails: 'Подробные детали для этого производства отсутствуют.',
+        detailsLoadError: 'Ошибка: Не удалось загрузить детали.'
+    };
+    const kzText = {
+        iinInvalid: 'ЖСН 12 саннан тұруы керек',
+        loadingCheck: 'Борышкерлер тізіліміндегі деректер тексерілуде...',
+        invalidFormat: 'Қате формат немесе деректер жоқ',
+        genericErrorShort: 'Тексеру кезінде қате орын алды. Қайталап көріңіз.',
+        genericErrorLong: 'Деректерді алу кезінде қате орын алды. ЖСН-ды тексеріп, кейінірек қайталап көріңіз. Егер қате қайталанса, adilet.gov.kz сайты уақытша қолжетімсіз немесе жүктемеде болуы мүмкін.',
+        serverError: 'Сервер қатесі',
+        serverCheckError: 'Борышкерді тексеру кезінде сервер қатесі',
+        apiNoData: 'API жауабынан деректерді алу мүмкін болмады',
+        canCancel: 'Күшін жоюға болады',
+        details: 'Толығырақ',
+        yes: 'Бар',
+        no: 'Жоқ',
+        complete: 'Жүктеу аяқталды!',
+        loading: 'Жүктеу...',
+        loadingRegistry: 'Тізілімдердегі деректер тексерілуде',
+        interfaceError: 'Интерфейс қатесі: нәтижелерді көрсету мүмкін болмады.',
+        tableNotFound: 'Нәтижелерді көрсету үшін кесте немесе бөлім элементтері табылмады.',
+        noDetails: 'Бұл өндіріс бойынша толық деректер жоқ.',
+        detailsLoadError: 'Қате: толық мәліметтерді жүктеу мүмкін болмады.'
+    };
+    const kzLabels = {
+        debtorNum: 'АІЖ нөмірі',
+        date: 'Күні',
+        amount: 'Борыш сомасы',
+        csiCost: 'ЖСО қызметтері',
+        cancelCost: 'Күшін жою құны',
+        savings: 'Мүмкін үнемдеу',
+        creditor: 'Өндіріп алушы',
+        organ: 'Орган',
+        executor: 'Орындаушы',
+        status: 'Мәртебесі',
+        restrictionType: 'Шектеу түрі'
+    };
     const T = {
-        iinInvalid: isKz ? 'ЖСН 12 саннан тұруы керек' : T.iinInvalid,
-        loadingCheck: isKz ? 'Борышкерлер тізіліміндегі деректер тексерілуде...' : T.loadingCheck,
-        invalidFormat: isKz ? 'Қате формат немесе деректер жоқ' : T.invalidFormat,
-        genericErrorShort: isKz ? 'Тексеру кезінде қате орын алды. Қайталап көріңіз.' : T.genericErrorShort,
-        genericErrorLong: isKz ? 'Деректерді алу кезінде қате орын алды. ЖСН-ды тексеріп, кейінірек қайталап көріңіз. Егер қате қайталанса, adilet.gov.kz сайты уақытша қолжетімсіз немесе жүктемеде болуы мүмкін.' : T.genericErrorLong,
-        serverError: isKz ? 'Сервер қатесі' : 'Ошибка сервера',
-        serverCheckError: isKz ? 'Борышкерді тексеру кезінде сервер қатесі' : T.serverCheckError,
-        apiNoData: isKz ? 'API жауабынан деректерді алу мүмкін болмады' : T.apiNoData,
-        canCancel: isKz ? 'Күшін жоюға болады' : T.canCancel,
-        details: isKz ? 'Толығырақ' : 'Подробнее',
-        yes: isKz ? 'Бар' : T.yes,
-        no: isKz ? 'Жоқ' : T.no,
-        complete: isKz ? 'Жүктеу аяқталды!' : T.complete,
-        loading: isKz ? 'Жүктеу...' : T.loading,
-        loadingRegistry: isKz ? 'Тізілімдердегі деректер тексерілуде' : T.loadingRegistry,
-        interfaceError: isKz ? 'Интерфейс қатесі: нәтижелерді көрсету мүмкін болмады.' : 'Ошибка интерфейса: не удалось отобразить результаты.',
-        tableNotFound: isKz ? 'Нәтижелерді көрсету үшін кесте немесе бөлім элементтері табылмады.' : 'Не найдены элементы таблиц или секций для отображения результатов.',
-        noDetails: isKz ? 'Бұл өндіріс бойынша толық деректер жоқ.' : T.noDetails,
-        detailsLoadError: isKz ? 'Қате: толық мәліметтерді жүктеу мүмкін болмады.' : T.detailsLoadError,
-        labels: isKz ? {
-            debtorNum: 'АІЖ нөмірі',
-            date: 'Күні',
-            amount: 'Борыш сомасы',
-            csiCost: 'ЖСО қызметтері',
-            cancelCost: 'Күшін жою құны',
-            savings: 'Мүмкін үнемдеу',
-            creditor: 'Өндіріп алушы',
-            organ: 'Орган',
-            executor: 'Орындаушы',
-            status: 'Мәртебесі',
-            restrictionType: 'Шектеу түрі'
-        } : {
-            debtorNum: 'Номер ИП',
-            date: 'Дата',
-            amount: 'Сумма долга',
-            csiCost: 'Услуги ЧСИ',
-            cancelCost: 'Стоимость отмены',
-            savings: 'Возможная экономия',
-            creditor: 'Взыскатель',
-            organ: 'Орган',
-            executor: 'Исполнитель',
-            status: 'Статус',
-            restrictionType: 'Тип ограничения'
-        }
+        ...(isKz ? kzText : baseText),
+        labels: isKz ? kzLabels : baseLabels
     };
 
 
@@ -876,7 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Находим все элементы, которые должны анимироваться при прокрутке
-    const elementsToAnimate = document.querySelectorAll('.fade-in-section, .why-us-section .col-md-4'); 
+    const elementsToAnimate = document.querySelectorAll('.fade-in-section, .why-us-section .col-md-4, .why-us-section .process-card'); 
     elementsToAnimate.forEach(el => {
         animateOnScrollObserver.observe(el);
     });

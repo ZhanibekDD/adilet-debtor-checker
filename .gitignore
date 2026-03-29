@@ -37,5 +37,5 @@ tmp/
 # Puppeteer generated files
 screenshots/
 
-# Archives (not part of source)
+# Archives
 *.zip

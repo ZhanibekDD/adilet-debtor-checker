@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js-enabled');
+
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('[data-nav-toggle]');
   const navLinks = document.querySelector('[data-nav-links]');
