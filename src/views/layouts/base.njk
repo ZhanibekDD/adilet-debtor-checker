@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ 'kk' if lang == 'kz' else 'ru' }}">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body>
+  {% include "partials/header.njk" %}
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script src="/js/site.js" defer></script>
+  <script src="/js/checker.js" defer></script>
+</body>
+</html>

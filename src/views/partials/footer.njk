@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span class="current-year"></span> StopNadpis</p>
+    <p>{{ 'Дереккөздерге негізделген тексеру, соңғы құқықтық баға заңгермен беріледі.' if lang == 'kz' else 'Проверка на основе открытых источников, итоговая юридическая оценка дается юристом.' }}</p>
+    <a href="{{ '/kz/privacy-policy' if lang == 'kz' else '/privacy-policy' }}">{{ 'Құпиялылық' if lang == 'kz' else 'Конфиденциальность' }}</a>
+    <a href="{{ '/kz/disclaimer' if lang == 'kz' else '/disclaimer' }}">{{ 'Дисклеймер' }}</a>
+  </div>
+</footer>
+{% if schema %}
+  {% for item in schema %}
+  <script type="application/ld+json">{{ item | dump | safe }}</script>
+  {% endfor %}
+{% endif %}

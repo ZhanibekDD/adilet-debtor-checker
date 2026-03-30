@@ -1,0 +1,18 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ meta.title }}</title>
+<meta name="description" content="{{ meta.description }}" />
+<meta name="robots" content="{{ meta.robots or 'index,follow' }}" />
+<link rel="canonical" href="{{ meta.canonical }}" />
+{% for alt in meta.alternates %}<link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.href }}" />{% endfor %}
+<meta property="og:type" content="{{ meta.og.type }}" />
+<meta property="og:title" content="{{ meta.og.title }}" />
+<meta property="og:description" content="{{ meta.og.description }}" />
+<meta property="og:url" content="{{ meta.og.url }}" />
+<meta name="twitter:card" content="{{ meta.twitter.card }}" />
+<meta name="twitter:title" content="{{ meta.twitter.title }}" />
+<meta name="twitter:description" content="{{ meta.twitter.description }}" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/pages.css" />
+<link rel="stylesheet" href="/css/utilities.css" />

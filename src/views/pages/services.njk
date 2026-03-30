@@ -1,0 +1,5 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<section class="container"><h1>{{ 'Услуги' if lang == 'ru' else 'Қызметтер' }}</h1><p>{{ 'Юридические решения по долгам, арестам и исполнительным надписям.' if lang == 'ru' else 'Борыш, арес және атқарушылық жазба бойынша құқықтық шешімдер.' }}</p></section>
+<section class="container grid">{% for item in services %}<article class="card"><h2><a href="{{ '/kz/services/' if lang == 'kz' else '/services/' }}{{ item.slug }}">{{ item.title }}</a></h2><p>{{ item.excerpt }}</p></article>{% endfor %}</section>
+{% endblock %}

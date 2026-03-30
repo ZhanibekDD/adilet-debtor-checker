@@ -1,0 +1,12 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<section class="container">
+  <h1>{{ 'Контакты' if lang == 'ru' else 'Байланыс' }}</h1>
+  <p>{{ 'Свяжитесь с юристом по WhatsApp или телефону.' if lang == 'ru' else 'Заңгермен WhatsApp не телефон арқылы байланысыңыз.' }}</p>
+  <div class="card">
+    <p>{{ site.phoneDisplay }}</p>
+    <a href="{{ site.whatsappHref }}" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+</section>
+{% endblock %}

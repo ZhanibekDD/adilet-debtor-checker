@@ -1,0 +1,31 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<section class="hero container">
+  <h1>{{ home.heroTitle }}</h1>
+  <p>{{ home.heroLead }}</p>
+  <div class="cta-row">
+    <a href="#checker" class="btn">{{ home.ctaPrimary }}</a>
+    <a href="{{ '/kz/contact' if lang == 'kz' else '/contact' }}" class="btn btn-secondary">{{ home.ctaSecondary }}</a>
+  </div>
+</section>
+<section id="checker" class="container card">
+  <h2>{{ 'Проверка по ИИН/ЖСН' if lang == 'ru' else 'ЖСН/ИИН тексеруі' }}</h2>
+  <form id="search-form" data-lang="{{ lang }}">
+    <label for="iin">{{ 'ИИН или ЖСН (12 цифр)' if lang == 'ru' else 'ИИН немесе ЖСН (12 сан)' }}</label>
+    <input id="iin" name="iin" maxlength="12" inputmode="numeric" required />
+    <button id="search-button" type="submit" class="btn">{{ 'Проверить' if lang == 'ru' else 'Тексеру' }}</button>
+    <p id="iin-validation" class="hidden"></p>
+  </form>
+  <div id="loading-container" class="hidden">{{ 'Проверяем данные...' if lang == 'ru' else 'Деректер тексерілуде...' }}</div>
+  <div id="error-message" class="hidden"><span id="error-text"></span></div>
+  <div id="results" class="hidden">
+    <h3>{{ 'Результат' if lang == 'ru' else 'Нәтиже' }}</h3>
+    <pre id="results-json"></pre>
+  </div>
+</section>
+<section class="container grid">
+  {% for item in services %}
+    <article class="card"><h3><a href="{{ '/kz/services/' if lang == 'kz' else '/services/' }}{{ item.slug }}">{{ item.title }}</a></h3><p>{{ item.excerpt }}</p></article>
+  {% endfor %}
+</section>
+{% endblock %}

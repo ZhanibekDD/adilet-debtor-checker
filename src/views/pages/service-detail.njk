@@ -1,0 +1,9 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<section class="container">
+  <h1>{{ detail.title }}</h1>
+  <p>{{ detail.description }}</p>
+  <ul>{% for bullet in detail.bullets %}<li>{{ bullet }}</li>{% endfor %}</ul>
+  <p class="note">{{ 'Статус требует уточнения. Нужен анализ документов.' if lang == 'ru' else 'Мәртебені нақтылау қажет. Құжат талдауы керек.' }}</p>
+</section>
+{% endblock %}

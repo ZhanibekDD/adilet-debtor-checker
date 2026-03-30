@@ -1,0 +1,6 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<section class="container"><h1>FAQ</h1>
+{% for item in faq %}<article class="card"><h2>{{ item.q }}</h2><p>{{ item.a }}</p></article>{% endfor %}
+</section>
+{% endblock %}
