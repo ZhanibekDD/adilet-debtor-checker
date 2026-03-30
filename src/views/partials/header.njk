@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="{{ '/kz' if lang == 'kz' else '/' }}" class="logo">StopNadpis</a>
+    <button class="menu-btn" data-nav-toggle aria-expanded="false">☰</button>
+    <nav data-nav-links>
+      {% for item in nav %}
+      <a href="{{ item.href }}" class="{% if currentPath == item.href %}active{% endif %}">{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+    <a class="lang" href="{{ altPath }}">{{ 'KZ' if lang == 'ru' else 'RU' }}</a>
+  </div>
+</header>
